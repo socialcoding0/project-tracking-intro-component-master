@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+//
+// font-family: 'Barlow Condensed', sans-serif;
+
+// ### Primary
+
+$Red: hsl(0, 100%, 68%);
+
+// ### Neutral
+
+$Very-Dark-Blue: hsl(230, 29%, 20%);
+$Dark-Grayish-Blue: hsl(229, 74%, 67%);
+$Grayish-Blue: hsl(231, 7%, 65%);
+$Light-Grayish-Blue: hsl(207, 33%, 95%);
+
+body {
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  min-height: 100vh;
+  position: relative;
+  min-width: 310px;
+
+  #mobile-controller {
+    display: none;
+    #hamburger,
+    #close {
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+  #bg {
+    width: 100%;
+    max-width: 600px;
+    height: 310px;
+    background-color: $Light-Grayish-Blue;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-bottom-left-radius: 50px;
+    z-index: -1;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    header {
+      height: 20vh;
+      #header-inside {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0rem;
+
+        nav {
+          ul {
+            display: flex;
+            gap: 2.5rem;
+            li {
+              list-style: none;
+
+              display: flex;
+              align-items: center;
+              a {
+                color: $Very-Dark-Blue;
+                font-weight: 700;
+                text-decoration: none;
+                font-family: "Barlow Condensed", sans-serif;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+              }
+              #login {
+                color: $Grayish-Blue;
+              }
+              i {
+                font-size: 5px;
+                color: $Grayish-Blue;
+              }
+            }
+          }
+        }
+      }
+    }
+    #container {
+      height: 80vh;
+
+      position: relative;
+      overflow: hidden;
+      #container-inside {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+
+        img {
+          position: absolute;
+          top: 0;
+          right: -230px;
+          width: 67%;
+          min-width: 800px;
+        }
+
+        #left {
+          width: 35%;
+          min-width: 354px;
+          display: flex;
+          flex-direction: column;
+
+          justify-content: center;
+          max-height: 280px;
+          margin-top: 3rem;
+
+          p {
+            text-transform: uppercase;
+            color: $Grayish-Blue;
+            font-size: 0.8rem;
+            font-family: "Barlow Condensed", sans-serif;
+            letter-spacing: 3px;
+
+            span {
+              background-color: $Very-Dark-Blue;
+              color: white;
+              font-family: "Barlow Condensed", sans-serif;
+              font-weight: 700;
+              border-radius: 15px;
+              padding: 0.2rem 0.4rem;
+              font-size: 0.7rem;
+              margin-right: 0.5rem;
+            }
+          }
+          h1 {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-family: "Barlow Condensed", sans-serif;
+            color: $Very-Dark-Blue;
+            line-height: 45px;
+            margin-top: 1rem;
+            font-size: 3rem;
+          }
+          h2 {
+            color: $Dark-Grayish-Blue;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin-top: 2rem;
+            width: 55%;
+          }
+          #button-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            button {
+              padding: 0.7rem 1.3rem;
+              text-transform: uppercase;
+              font-family: "Barlow Condensed", sans-serif;
+              font-weight: 700;
+              color: white;
+              outline: none;
+              border: none;
+              border-radius: 3px;
+              background-color: $Red;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  body {
+    #mobile-controller {
+      display: block;
+
+      #close {
+        display: none;
+      }
+    }
+    main {
+      position: relative;
+      header {
+        #header-inside {
+          nav {
+            display: none;
+            position: absolute;
+            top: 100px;
+            z-index: 1;
+            border-radius: 10px;
+            width: 250px;
+            left: 50%;
+            margin-left: -125px;
+            background-color: white;
+            box-shadow: -5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+            ul {
+              flex-direction: column;
+              align-items: center;
+              padding: 2rem 0rem;
+            }
+          }
+
+          .mobile-active {
+            display: block;
+          }
+        }
+      }
+      #container {
+        height: auto;
+
+        #container-inside {
+          display: flex;
+          flex-direction: column;
+
+          align-items: center;
+          justify-content: center;
+          #left {
+            width: 100%;
+            min-width: 300px;
+            padding: 1rem 0rem;
+            min-width: none;
+            max-height: none;
+            height: fit-content;
+            order: 2;
+            h2 {
+              width: 100%;
+            }
+          }
+
+          img {
+            right: 0px;
+            min-width: 300px;
+            width: 100%;
+            position: static;
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: 585px) {
+//   html {
+//     font-size: 13px;
+//   }
+//   body {
+//     main {
+//       header {
+//         background-color: red;
+//         nav {
+//         }
+//       }
+//       #container {
+//         background-color: #a52a2a;
+
+//         #container-inside {
+//           display: flex;
+//           flex-direction: column;
+
+//           justify-content: flex-end;
+
+//           #left {
+//             width: 100%;
+//             background-color: aqua;
+//             min-width: none;
+//             max-height: none;
+//             height: fit-content;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
